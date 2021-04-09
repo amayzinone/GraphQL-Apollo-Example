@@ -1,4 +1,4 @@
-const { books } = require("../../Data");
+const { books, authors } = require("../../Data");
 
 const BookResolver = {
     Query: {
@@ -7,6 +7,12 @@ const BookResolver = {
         },
         getBook: (parent, args) => {
             return books.find(book => book.id === args.id)
+        }
+    },
+
+    Book: {
+        author: (book) => {
+            return authors.find(author => author.id === book.authorId)
         }
     },
 

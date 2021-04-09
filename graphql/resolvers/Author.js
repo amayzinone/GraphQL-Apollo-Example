@@ -1,4 +1,4 @@
-const { authors } = require("../../Data");
+const { authors, books } = require("../../Data");
 
 const AuthorResolver = {
     Query: {
@@ -7,6 +7,12 @@ const AuthorResolver = {
         },
         getAuthor: (parent, args) => {
             return authors.find(author => author.id === args.id)
+        }
+    },
+
+    Author: {
+        books: (author) => {
+            return books.filter(book => book.authorId === author.id )
         }
     },
 

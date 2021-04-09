@@ -8,4 +8,4 @@ const server = new ApolloServer({ schema });
 
 server.applyMiddleware({ app })
 
-app.listen(5001, () => console.log('server is running'));
+app.listen(5000, () => console.log('server is running'));
